@@ -1,0 +1,59 @@
+{{>header}}
+
+
+<section class="imagenContacto">
+  <section class="container col-4 bg-danger p-1 mb-3">
+
+    <h1 class="text-center text-dark p-3 mb-2">CONTACTO</h1>
+    <form action="/enviar-email" method="post">
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" placeholder="Ingresá tu nombre">
+      </div>
+      <div class="mb-3">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" name="apellido" placeholder="Ingresá tu apellido">
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Correo electrónico</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted"> </small>
+      </div>
+      <div class="mb-3">
+        <label for="asunto">Asunto</label>
+        <input type="text" class="form-control" name="asunto" placeholder="Asunto" required>
+      </div>
+
+      <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Dejá un comentario" id="floatingTextarea" name="mensaje"></textarea>
+        <label for="mensaje">Mensaje</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+    </form>
+
+  </section>
+
+  </section>
+
+<div class="container">
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ratione, numquam sapiente nobis perferendis quos
+perspiciatis esse dicta iure deleniti animi harum voluptatem excepturi quam provident laboriosam? Quis, repudiandae
+quos! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, quam repellat incidunt laborum nihil
+veniam numquam quod excepturi. Magni tenetur laborum incidunt, maiores cumque at error similique repellendus neque
+accusamus.
+</div>
+{{>footer}}
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+  integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+
+<script src="/assets/js/bootstrap.js"></script>
+
+
+</body>
+
+
+</html>

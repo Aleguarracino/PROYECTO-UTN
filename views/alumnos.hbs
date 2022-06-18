@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" /> <!-- configurado desde index js -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    <title>Alumnos</title>
+</head>
+
+<body>
+
+
+
+    <div class="container p-5">
+        <h1> Sesión iniciada por {{user.usuario}}</h1>
+        <table class="table">
+            <h1>Alumnos</h1>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Añadir alumno </button>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nivel</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each results}}
+
+
+                <tr>
+                    <td>{{estudiantes_id}} </td>
+                    <td>{{estudiantes_nombre}}</td>
+                    <td>{{estudiantes_apellido}}</td>
+                    <td>{{estudiantes_fk_id_nivel}}</td>
+
+
+                    <td>
+
+                        <a href="#" class="btn btn-info edit"> Editar </a>
+                        <a href="#" class="btn btn-info delete"> Borrar</a>
+
+                    </td>
+                </tr>
+
+                {{/each}}
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+    {{!--MODAL PARA AGREGAR ALUMNOS--}}
+
+    <form action="/save" method="post">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Agregar Alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group  mb-3">
+                            <input type="text" name="estudiantes_nombre" class="form-control"
+                                placeholder="Nombre del Alumno" required>
+
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="text" name="estudiantes_apellido" class="form-control"
+                                placeholder="Apellido del Alumno" required>
+
+                        </div>
+
+                        <div class="form-group mb-3-">
+                            <input type="text" name="estudiantes_fk_id_nivel" class="form-control"
+                                placeholder="Nivel del Alumno" required>
+
+                        </div>    
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+
+    <script src="/assets/js/bootstrap.js"></script>
+</body>
+
+
+
+</html>
