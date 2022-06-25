@@ -16,7 +16,7 @@
 
     <div class="container p-5">
         <h1> Sesión iniciada por {{user.usuario}}</h1>
-        <table class="table">
+        <table class="table" id="mytable">
             <h1>Alumnos</h1>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Añadir alumno </button>
@@ -26,6 +26,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Nivel</th>
+                    <th scope="col">Acción</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,8 +42,8 @@
 
                     <td>
 
-                        <a href="#" class="btn btn-info edit"> Editar </a>
-                        <a href="#" class="btn btn-info delete"> Borrar</a>
+                        <a href="javascript:void(0);" class="btn btn-info edit" data-id="{{estudiantes_id}}" data-estudiantes_nombre="{{ estudiantes_nombre}}" data-estudiantes_apellido="{{ estudiantes_apellido}}" data-estudiantes_fk_id_nivel="{{ estudiantes_fk_id_nivel }}"> Editar </a>
+                        <a href="javascript:void(0);" class="btn btn-info delete" data-id="{{estudiantes_id}} "> Borrar</a>
 
                     </td>
                 </tr>
@@ -89,6 +90,50 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+        {{!--MODAL PARA EDITAR ALUMNOS--}}
+
+<form action="/update" method="post">
+
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar dato Alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group  mb-3">
+                            <input type="text" name="estudiantes_nombre" class="form-control estudiantes_nombre"
+                                placeholder="Nombre del Alumno" required>
+
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <input type="text" name="estudiantes_apellido" class="form-control estudiantes_apellido"
+                                placeholder="Apellido del Alumno" required>
+
+                        </div>
+
+                        <div class="form-group mb-3-">
+                            <input type="text" name="estudiantes_fk_id_nivel" class="form-control estudiantes_fk_id_nivel"
+                                placeholder="Nivel del Alumno" required>
+
+                        </div>    
+
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" class="estudiantes_id">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Guardar cambios</button>
                     </div>
                 </div>
@@ -99,15 +144,38 @@
     </form>
 
 
-
+<script src="/assets/js/jquery-3.6.0.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
 
     <script src="/assets/js/bootstrap.js"></script>
-</body>
 
 
+
+<script>
+    $(document).ready(function () {
+
+        //mostrar datos al modal para editar el registro
+
+        
+        $('#mytable').on('click', '.edit', function () {
+            let estudiantes_id = $(this).data('id');
+            let estudiantes_nombre = $(this).data('estudiantes_nombre'); 
+            let estudiantes_apellido = $(this).data('estudiantes_apellido'); 
+            let estudiantes_fk_id_nivel = $(this).data('estudiantes_fk_id_nivel'); 
+            $('#EditModal').modal('show');
+            $('.estudiantes_nombre').val(estudiantes_nombre);
+            $('.estudiantes_apellido').val(estudiantes_apellido);
+            $('.estudiantes_fk_id_nivel').val(estudiantes_fk_id_nivel);
+            $('.estudiantes_id').val(estudiantes_id);
+        })
+
+    })
+</script>
+
+
+</body> 
 
 </html>

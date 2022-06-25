@@ -48,8 +48,8 @@ router.get("/alumnos", (req, res) => {
         if (err) throw err;
         res.render('alumnos', {
             results: results,
-            user     
-            });
+            user
+        });
     });
 
 });
@@ -66,9 +66,23 @@ router.post('/save', (req, res) => {
     });
 });
 
+
+//UPDATE 
+router.post('/update', (req, res) => {
+    let sql = "UPDATE estudiantes SET estudiantes_nombre= '" + req.body.estudiantes_nombre + "', estudiantes_apellido='" + req.body.estudiantes_apellido + "', estudiantes_fk_id_nivel='" + req.body.estudiantes_fk_id_nivel + "' WHERE estudiantes_id=" + req.body.id;
+    
+    let query = conn.query(sql, (err, results) => {
+        if (err) throw err;
+        res.redirect('alumnos'); //Consultar por qué da error con res.render
+    });
+});
+
+
+
+
 //SESION
 
-router.post("/registro", (req, res)=>{
+router.post("/registro", (req, res) => {
     req.session.my_variable = req.body;
     res.redirect('/alumnos')
 })
