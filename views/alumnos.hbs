@@ -42,8 +42,8 @@
 
                     <td>
 
-                        <a href="javascript:void(0);" class="btn btn-info edit" data-id="{{estudiantes_id}}" data-estudiantes_nombre="{{ estudiantes_nombre}}" data-estudiantes_apellido="{{ estudiantes_apellido}}" data-estudiantes_fk_id_nivel="{{ estudiantes_fk_id_nivel }}"> Editar </a>
-                        <a href="javascript:void(0);" class="btn btn-info delete" data-id="{{estudiantes_id}} "> Borrar</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-primary  edit" data-id="{{estudiantes_id}}" data-estudiantes_nombre="{{ estudiantes_nombre}}" data-estudiantes_apellido="{{ estudiantes_apellido}}" data-estudiantes_fk_id_nivel="{{ estudiantes_fk_id_nivel }}"> Editar </a>
+                        <a href="javascript:void(0);" class="btn btn-outline-warning delete" data-id="{{estudiantes_id}}"> Borrar</a>
 
                     </td>
                 </tr>
@@ -54,6 +54,8 @@
 
             </tbody>
         </table>
+  <a class="btn  btn-primary  d-grid gap-2 col-3 mx-auto"  href="/" role="button">Home</a>
+
     </div>
 
     {{!--MODAL PARA AGREGAR ALUMNOS--}}
@@ -143,6 +145,40 @@
 
     </form>
 
+ {{!--MODAL PARA ELIMINAR ALUMNOS--}}
+
+<form action="/delete" method="post">
+
+        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Borrar datos Alumno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group  mb-3">
+                            <p>¿ Está seguro que desea eliminar todos los datos del Alumno ?</p>
+
+                        </div>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="estudiantes_id" class=" form-control estudiantes_id">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+
+
+
+
 
 <script src="/assets/js/jquery-3.6.0.js"></script>
 
@@ -171,6 +207,13 @@
             $('.estudiantes_fk_id_nivel').val(estudiantes_fk_id_nivel);
             $('.estudiantes_id').val(estudiantes_id);
         })
+
+        $('#mytable').on('click', '.delete', function () {
+            let estudiantes_id = $(this).data('id');
+            $('#DeleteModal').modal('show');
+            $('.estudiantes_id').val(estudiantes_id);
+        })
+
 
     })
 </script>

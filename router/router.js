@@ -36,7 +36,14 @@ router.get("/classroom", (req, res) => {
 
 });
 
+router.get("/nosotros", (req, res) => {
+    res.render('nosotros', {
+        nombre: 'Alejandro Guarracino',
+        titulo: 'Instituto de Inglés'
 
+    })    
+
+});
 
 // CLASSROOM BASE DE DATOS --SELECT--
 
@@ -70,6 +77,16 @@ router.post('/save', (req, res) => {
 //UPDATE 
 router.post('/update', (req, res) => {
     let sql = "UPDATE estudiantes SET estudiantes_nombre= '" + req.body.estudiantes_nombre + "', estudiantes_apellido='" + req.body.estudiantes_apellido + "', estudiantes_fk_id_nivel='" + req.body.estudiantes_fk_id_nivel + "' WHERE estudiantes_id=" + req.body.id;
+    
+    let query = conn.query(sql, (err, results) => {
+        if (err) throw err;
+        res.redirect('alumnos'); //Consultar por qué da error con res.render
+    });
+});
+
+//DELETE 
+router.post('/delete', (req, res) => {
+    let sql = "DELETE from estudiantes WHERE estudiantes_id= "  + req.body.estudiantes_id + "";
     
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
