@@ -1,7 +1,7 @@
 const { Router } = require("express");  // Router Modulo propio de express
 const router = new Router();
 
-/* const mysql = require('mysql');
+const mysql = require('mysql');
 
 const conn = mysql.createConnection({
     host: 'localhost',
@@ -14,7 +14,7 @@ conn.connect((err) => {
     if (err) throw err;
     console.log("CONEXION ESTABLECIDA");
 })
-*/
+
 
 //SELECT
 
