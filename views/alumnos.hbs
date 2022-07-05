@@ -14,12 +14,16 @@
 
 
 
-    <div class="container p-5">
+    <div class="container p-5 bg-light">
+
         <h1> Sesión iniciada por {{user.usuario}}</h1>
+
         <table class="table" id="mytable">
-            <h1>Alumnos</h1>
+            <div class="container-flex pt-3 pb-3">
+            <h2>Listado de Alumnos</h2> </div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Añadir alumno </button>
+
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -42,8 +46,12 @@
 
                     <td>
 
-                        <a href="javascript:void(0);" class="btn btn-outline-primary  edit" data-id="{{estudiantes_id}}" data-estudiantes_nombre="{{ estudiantes_nombre}}" data-estudiantes_apellido="{{ estudiantes_apellido}}" data-estudiantes_fk_id_nivel="{{ estudiantes_fk_id_nivel }}"> Editar </a>
-                        <a href="javascript:void(0);" class="btn btn-outline-warning delete" data-id="{{estudiantes_id}}"> Borrar</a>
+                        <a href="javascript:void(0);" class="btn btn-outline-primary   edit"
+                            data-id="{{estudiantes_id}}" data-estudiantes_nombre="{{ estudiantes_nombre }}"
+                            data-estudiantes_apellido="{{ estudiantes_apellido }}"
+                            data-estudiantes_fk_id_nivel="{{ estudiantes_fk_id_nivel }}"> Editar </a>
+                        <a href="javascript:void(0);" class="btn btn-outline-warning delete"
+                            data-id="{{estudiantes_id}}"> Borrar</a>
 
                     </td>
                 </tr>
@@ -54,7 +62,7 @@
 
             </tbody>
         </table>
-  <a class="btn  btn-primary  d-grid gap-2 col-3 mx-auto"  href="/" role="button">Home</a>
+        <a class="btn  btn-primary  d-grid gap-2 col-3 mx-auto" href="/" role="button">Home</a>
 
     </div>
 
@@ -62,7 +70,8 @@
 
     <form action="/save" method="post">
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -82,12 +91,20 @@
                                 placeholder="Apellido del Alumno" required>
 
                         </div>
-
-                        <div class="form-group mb-3-">
+                        <!--
+                        <div class="form-group mb-3">
                             <input type="text" name="estudiantes_fk_id_nivel" class="form-control"
                                 placeholder="Nivel del Alumno" required>
 
-                        </div>    
+                        </div>
+                        -->
+                        <select class="form-select mb-3" name="estudiantes_fk_id_nivel"
+                            aria-label="Default select example" required>
+                            <option value="">Nivel del alumno</option>
+                            <option value="1">Inicial</option >
+                            <option value="2">Intermedio</option >
+                            <option value="3">Avanzado</option >
+                        </select >
 
                     </div>
                     <div class="modal-footer">
@@ -101,11 +118,12 @@
 
     </form>
 
-        {{!--MODAL PARA EDITAR ALUMNOS--}}
+    {{!--MODAL PARA EDITAR ALUMNOS--}}
 
-<form action="/update" method="post">
+    <form action="/update" method="post">
 
-        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -126,11 +144,21 @@
 
                         </div>
 
+                           <!--                 
                         <div class="form-group mb-3-">
-                            <input type="text" name="estudiantes_fk_id_nivel" class="form-control estudiantes_fk_id_nivel"
-                                placeholder="Nivel del Alumno" required>
+                            <input type="text" name="estudiantes_fk_id_nivel"
+                                class="form-control estudiantes_fk_id_nivel" placeholder="Nivel del Alumno" required>
 
-                        </div>    
+                        </div>
+                            -->
+                      <select class="form-select mb-3" name="estudiantes_fk_id_nivel"
+                            aria-label="Default select example" required>
+                            <option value="">Nivel del alumno</option>
+                            <option value="1">Inicial</option >
+                            <option value="2">Intermedio</option >
+                            <option value="3">Avanzado</option >
+                        </select >
+
 
                     </div>
                     <div class="modal-footer">
@@ -145,11 +173,12 @@
 
     </form>
 
- {{!--MODAL PARA ELIMINAR ALUMNOS--}}
+    {{!--MODAL PARA ELIMINAR ALUMNOS--}}
 
-<form action="/delete" method="post">
+    <form action="/delete" method="post">
 
-        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -162,7 +191,7 @@
                             <p>¿ Está seguro que desea eliminar todos los datos del Alumno ?</p>
 
                         </div>
-                    
+
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="estudiantes_id" class=" form-control estudiantes_id">
@@ -180,7 +209,7 @@
 
 
 
-<script src="/assets/js/jquery-3.6.0.js"></script>
+    <script src="/assets/js/jquery-3.6.0.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -190,35 +219,35 @@
 
 
 
-<script>
-    $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
 
-        //mostrar datos al modal para editar el registro
+            //mostrar datos al modal para editar el registro
 
-        
-        $('#mytable').on('click', '.edit', function () {
-            let estudiantes_id = $(this).data('id');
-            let estudiantes_nombre = $(this).data('estudiantes_nombre'); 
-            let estudiantes_apellido = $(this).data('estudiantes_apellido'); 
-            let estudiantes_fk_id_nivel = $(this).data('estudiantes_fk_id_nivel'); 
-            $('#EditModal').modal('show');
-            $('.estudiantes_nombre').val(estudiantes_nombre);
-            $('.estudiantes_apellido').val(estudiantes_apellido);
-            $('.estudiantes_fk_id_nivel').val(estudiantes_fk_id_nivel);
-            $('.estudiantes_id').val(estudiantes_id);
+
+            $('#mytable').on('click', '.edit', function () {
+                let estudiantes_id = $(this).data('id');
+                let estudiantes_nombre = $(this).data('estudiantes_nombre');
+                let estudiantes_apellido = $(this).data('estudiantes_apellido');
+                let estudiantes_fk_id_nivel = $(this).val('estudiantes_fk_id_nivel');
+                $('#EditModal').modal('show');
+                $('.estudiantes_nombre').val(estudiantes_nombre);
+                $('.estudiantes_apellido').val(estudiantes_apellido);
+                $('.estudiantes_fk_id_nivel').val(estudiantes_fk_id_nivel);
+                $('.estudiantes_id').val(estudiantes_id);
+            })
+
+            $('#mytable').on('click', '.delete', function () {
+                let estudiantes_id = $(this).data('id');
+                $('#DeleteModal').modal('show');
+                $('.estudiantes_id').val(estudiantes_id);
+            })
+
+
         })
-
-        $('#mytable').on('click', '.delete', function () {
-            let estudiantes_id = $(this).data('id');
-            $('#DeleteModal').modal('show');
-            $('.estudiantes_id').val(estudiantes_id);
-        })
+    </script>
 
 
-    })
-</script>
-
-
-</body> 
+</body>
 
 </html>

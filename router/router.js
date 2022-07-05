@@ -1,12 +1,13 @@
 const { Router } = require("express");  // Router Modulo propio de express
 const router = new Router();
+
 const mysql = require('mysql');
 
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'instituto'
+    database: 'alejandro_guarracino'
 })
 
 conn.connect((err) => {
@@ -32,7 +33,7 @@ router.get("/classroom", (req, res) => {
         nombre: 'Alejandro Guarracino',
         titulo: 'Instituto de Inglés'
 
-    })    //renderizar contenido dinámico, no necesita ser indicada la ruta
+    })   
 
 });
 
@@ -44,6 +45,7 @@ router.get("/nosotros", (req, res) => {
     })    
 
 });
+
 
 // CLASSROOM BASE DE DATOS --SELECT--
 
@@ -71,6 +73,7 @@ router.post('/save', (req, res) => {
         if (err) throw err;
         res.redirect('alumnos'); //Consultar por qué da error con res.render
     });
+    
 });
 
 
@@ -80,7 +83,7 @@ router.post('/update', (req, res) => {
     
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
-        res.redirect('alumnos'); //Consultar por qué da error con res.render
+        res.redirect('alumnos'); 
     });
 });
 
@@ -90,7 +93,7 @@ router.post('/delete', (req, res) => {
     
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
-        res.redirect('alumnos'); //Consultar por qué da error con res.render
+        res.redirect('alumnos'); 
     });
 });
 
@@ -105,13 +108,19 @@ router.post("/registro", (req, res) => {
 })
 
 
+router.get("/contacto", (req, res) => {
+    res.render('contacto', {
+        nombre: 'Alejandro Guarracino',
+        titulo: 'Instituto de Inglés'
 
+    })    
 
-/* CONSULTAR  ERROR 404 no me permite ir a contacto porque no se encuentra en router, se encuentra en contacto js
+});
 
 router.get("*", (req, res) => {
-    res.render('404')    
+        res.render('404')    
 });
-*/
+
+
 
 module.exports = router;

@@ -1,162 +1,380 @@
-  /*primero se hace el reseteo en la hoja de estilo para normalizar las variaciones de los distintos navegadores
-*{            
-    margin: 0;
-    padding: 0;
-
-
-}
-*/
-
-body{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+body {
     font-weight: 20;
-    font-size: 1.1rem;
-}
-.banner{
-background-image: url("./img/pexels-pixabay-258117.jpg");
-background-color: rgb(71, 106, 151);
-background-repeat: no-repeat; /*opcion para que la imagen del banner no repita, tiene varias opciones de repeticiones*/
-background-size:  cover;/*opcion para que la imagen ocupa todo el banner*/
-background-position: center;
-
-height: 30rem;
-}
-
-.menuSuperior {
-list-style-type: none; /*Saca las viñetas de la lista*/
-text-align: right; /*centra la lista, las listas son elementos en bloque*/
-}
-
-.menuSuperior li{ /*las listas son elementos en bloque, los convierte en un elemento en línea*/
-display: inline-block;/*opción para conservar propiedades de elemento en bloque, en este caso respecto del padding*/
-padding: 3rem;
-font-size: 2.3rem;
-font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-
-}
-
-
-
-.imagenBanner{
-    
-    display: flex; 
-    background-image: url("/assets/img/pexels-pixabay-Londres ciudad.jpg");
-    background-color: rgb(52, 43, 100);
-    background-repeat: no-repeat; /*opcion para que la imagen del banner no repita, tiene varias opciones de repeticiones*/
-    background-size:  cover;/*opcion para que la imagen ocupa todo el banner*/
-    background-position: center;
-    
-    height: 35rem;
-    }
-
-
-.primeraSeccion{
-    background-color:white;
-    background-position: center;
-    background-size:  cover;
-    height: 25rem;
-    background-attachment: fixed;
-
-
-
-}
-
-.primeraSeccion{
-text-align: center;
-padding: 2rem;
-}
-
-.primeraSeccion h2{
     font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-       
-
 }
-
-.primeraSeccion p{
-padding: 1rem;
-text-align: center;
-
-}
-
-/* FOOTER*/
-
-.footer{
-display: flex;   
-background-color:rgb(114, 168, 155);
-justify-content: center;
-align-items: center;
-text-align: center;
-font-family: Arial, Helvetica, sans-serif;
-height: 3.5rem;
-
-}
-
-.bloqueFooter{
-    display: flex;
-    list-style-type: none; /*Saca las viñetas de la lista*/
-    align-items: center;
-    padding-top: 1rem;
-}
-
-
-.bloqueFooter a{
-    color: #000;
-    text-decoration: none;/*le saca el subrallado del vínculo*/
-    padding-right: 1rem;
-   
-}
-
-.bloqueFooter li{
-    display: inline-block;
-   
-   
-}
-
-
 
 /* NAVBAR*/
 
-.navbarHome{
-font-weight: 500;
-font-size: 1.8rem;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.navbarHome {
+    font-weight: 500;
+    font-size: 1.8rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
 
 /*clase para cambiar el color del Navbar  rgb(114, 168, 155) */
-.bg-colorNavbar{
-    background-color:rgb(88, 206, 178);
+.bg-colorNavbar {
+    background-color: rgb(88, 206, 178);
 }
 
 /*clase para cubrir el color de los costados del Navbar*/
-.fondoNavbar{
-    background-color:rgb(88, 206, 178) ;
+.fondoNavbar {
+    background-color: rgb(88, 206, 178);
+}
+
+.banner {
+    background-image: url("./img/pexels-pixabay-258117.jpg");
+    background-color: rgb(71, 106, 151);
+    background-repeat: no-repeat;
+    /*opcion para que la imagen del banner no repita, tiene varias opciones de repeticiones*/
+    background-size: cover;
+    /*opcion para que la imagen ocupa todo el banner*/
+    background-position: center;
+    height: 30rem;
+}
+
+
+/* Banner dispositivos extra small*/
+
+@media (min-width: 50px) {
+    .imagenBanner {
+        background-image: url("/assets/img/pexels-pixabay-Londres ciudad.jpg");
+        background-color: rgb(71, 106, 151);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 18rem;
+    }
+}
+
+/*Banner dispositivos small*/
+
+@media (min-width: 576px) {
+    .imagenBanner {
+        background-image: url("/assets/img/pexels-pixabay-Londres ciudad.jpg");
+        background-color: rgb(71, 106, 151);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 25rem;
+    }
+}
+
+/*Banner dispositivos large */
+
+@media (min-width: 768px) {
+    .imagenBanner {
+        background-image: url("/assets/img/pexels-pixabay-Londres ciudad.jpg");
+        background-color: rgb(71, 106, 151);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 35rem;
+    }
+}
+.primeraSeccionPortada{
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    background-color: hsl(230, 100%, 97%);
+}
+
+.primeraSeccion {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: aliceblue;
+    
+}
+
+.primeraSeccion h1 {
+
+    padding: 2rem;
+}
+
+.primeraSeccion h2 {
+    padding-top: 2rem;
+
+
+}
+
+.primeraSeccion h3 {
+    padding-top: 3rem;
+}
+
+.primeraSeccion h4 {
+    padding-top: 3rem;
+}
+
+.primeraSeccion p {
+    padding: 1.5rem;
+    text-align: center;
+
+}
+
+.primeraSeccion li {
+    list-style-type: none;
+    padding: 0.4rem;
 }
 
 
 
-.imagenContacto{
-background-image: url("../img/pexels-pixabay-221166.jpg");
-background-position: center;
-background-size:  cover;
-height: 65rem;
-background-attachment: fixed;
+.talleres {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem;
+
+}
+
+
+
+.talleresEspeciales {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+
+}
+
+.imagenesPrimeraSeccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.imagenesPrimeraSeccion img {
+    width: 65%;
+    padding-top: 1.5rem;
+}
+
+
+/* FOOTER*/
+
+.footer {
+    display: flex;
+    background-color: rgb(88, 206, 178);
+    justify-content: center;
+    align-items: center;
+    text-align: start;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 3.5rem;
+
+}
+
+.bloqueFooter {
+    display: flex;
+    list-style-type: none;
+    /*Saca las viñetas de la lista*/
+    align-items: center;
+
+}
+
+.bloqueFooter li {
+    display: inline-block;
+    padding-top: 1.3rem;
 
 
 }
 
-.imagenClassroom{
-background-image: url("/assets/img/pexels-autobus.jpg");
-background-position: center;
-background-size:  cover;
-height: 75rem;
-background-attachment: fixed;
-
+.bloqueFooter2 li {
+    display: inline-block;
+    padding-top: 0.8em;
+    padding-right: 0.5rem;
 
 }
 
-.tituloBanner{
-   color:black;
-   padding: 3rem;
+
+
+.bloqueFooter a {
+    color: #000;
+    text-decoration: none;
+    /*le saca el subrallado del vínculo*/
+    padding-right: 1rem;
+
 }
 
+/*alinear img con el texto en el footer*/
+.imgHome {
+    padding-bottom: 2px;
+
+}
+
+.imgContacto {
+    padding-bottom: 7px;
+    /*alinear img con el texto footer*/
+}
+
+
+
+
+/*CONTACTO*/
+
+@media (min-width: 50px) {
+    .imagenContacto {
+        display: flex;
+        background-image: url("../img/pexels-pixabay-221166.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 45rem;
+        background-attachment: fixed;
+
+    }
+
+}
+
+@media (min-width: 1200px) {
+    .imagenContacto {
+        display: flex;
+        background-image: url("../img/pexels-pixabay-221166.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 51rem;
+        background-attachment: fixed;
+        
+
+    }
+
+}
+
+ /*CLASSROOM */
+
+@media (min-width: 50px) {
+    .imagenClassroom {
+        background-image: url("/assets/img/pexels-autobus.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 43rem;
+        background-attachment: fixed;
+    }
+
+}
+
+
+@media (min-width: 576px) {
+    .imagenClassroom {
+        background-image: url("/assets/img/pexels-autobus.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 47rem;
+        background-attachment: fixed;
+    }
+
+}
+
+
+
+
+@media (min-width: 992px) {
+    .imagenClassroom {
+        background-image: url("/assets/img/pexels-autobus.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 55rem;
+        background-attachment: fixed;
+    }
+
+}
+
+
+
+@media (min-width: 50px) {
+    .enviado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45rem;
+        background-image: url(/assets/img/pexels-tetyana-kovyrina-telefono.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+@media (min-width: 576px) {
+    .enviado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45rem;
+        background-image: url(/assets/img/pexels-tetyana-kovyrina-telefono.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-size: 3rem;
+    }
+
+}
+
+
+
+@media (min-width: 768px) {
+    .enviado {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 65rem;
+        background-image: url(/assets/img/pexels-tetyana-kovyrina-telefono.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        font-size: 3rem;
+
+    }
+}
+
+
+/*PAGINA ENVIADO MNSAJE CONTACTO*/
+
+.enviadoTexto {
+
+    padding-bottom: 20rem;
+}
+
+
+/*NOSOTROS*/
+
+.nosotrosPortada{
+    background-color: rgb(223, 243, 238);
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    padding: 3rem;
+    text-align: center;
+}  
+
+
+.nosotros {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.4rem;
+    background-color:rgb(236, 242, 245);
+    text-align: center;
+}
+
+
+.nosotros p {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+
+    
+
+.nosotros img{
+    width: 70%;
+    
+}
