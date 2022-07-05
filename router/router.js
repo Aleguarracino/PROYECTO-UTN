@@ -24,7 +24,7 @@ conn.connect((err) => {
 router.get("/", (req, res) => {   //renderizar contenido dinámico, no necesita ser indicada la ruta
     res.render('index', {
         nombre: 'Alejandro Guarracino',
-        titulo: 'Instituto de Inglés'
+        titulo: 'Instituto de Inglés Management'
 
     })
 });
