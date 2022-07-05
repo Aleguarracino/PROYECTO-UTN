@@ -7,7 +7,7 @@ body {
 
 .navbarHome {
     font-weight: 500;
-    font-size: 1.8rem;
+    
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
@@ -106,6 +106,8 @@ body {
 
 .primeraSeccion h4 {
     padding-top: 3rem;
+    
+    
 }
 
 .primeraSeccion p {
@@ -118,16 +120,6 @@ body {
     list-style-type: none;
     padding: 0.4rem;
 }
-
-
-
-.talleres {
-    display: flex;
-    justify-content: space-around;
-    padding: 4rem;
-
-}
-
 
 
 .talleresEspeciales {
@@ -148,7 +140,7 @@ body {
 
 .imagenesPrimeraSeccion img {
     width: 65%;
-    padding-top: 1.5rem;
+    padding-top: 0.9rem;
 }
 
 
@@ -209,9 +201,10 @@ body {
 }
 
 
-
-
 /*CONTACTO*/
+
+
+
 
 @media (min-width: 50px) {
     .imagenContacto {
@@ -349,7 +342,8 @@ body {
     display: flex;
     justify-content: center;
     font-size: 1.4rem;
-    padding: 3rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
     text-align: center;
 }  
 
@@ -367,7 +361,8 @@ body {
 
 
 .nosotros p {
-    padding: 1.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5;
     text-align: center;
 }
 
@@ -378,3 +373,4 @@ body {
     width: 70%;
     
 }
+
