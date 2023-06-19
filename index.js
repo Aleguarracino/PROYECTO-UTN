@@ -18,18 +18,23 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.use('/assets', express.static(__dirname + '/public')); // va a buscar los archivos en public
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));  //tratamiento de protocolos de POST Y GET 
+
 app.use(session({
     secret: '123456',
     resave: true,
     saveUninitialized: true,
-
-}))
+    cookie: {
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000) // Fecha de expiración en una semana
+    }
+}));
 
 
 
 app.use(require('./router/router'));  //requiere router
 app.use(require('./router/contacto')); // requiere contacto para envio de mail
 
+
+app.use(require('./router/dbClassroom'));
 
 
 

@@ -1,8 +1,7 @@
+
+
 const { Router } = require("express");  // Router Modulo propio de express
-const router = new Router();
-
-
-/*
+const dbClassroom = new Router();
 const mysql = require('mysql');
 
 
@@ -22,35 +21,9 @@ conn.connect((err) => {
 
 
 
-*/
-
-router.get("/", (req, res) => {   //renderizar contenido dinámico, no necesita ser indicada la ruta
-    res.render('index', {
-        nombre: 'Alejandro Guarracino',
-        titulo: 'Instituto de Inglés Management'
-
-    })
-});
-
-router.get("/classroom", (req, res) => {
-    res.render('classroom')   
-
-});
-
-router.get("/nosotros", (req, res) => {
-    res.render('nosotros', {
-        nombre: 'Alejandro Guarracino',
-        titulo: 'Instituto de Inglés'
-
-    })    
-
-});
-
-/*
-
 // CLASSROOM BASE DE DATOS --SELECT--
 
-router.get("/alumnos", (req, res) => {
+dbClassroom.get("/alumnos", (req, res) => {
     const user = req.session.my_variable;
     delete req.session.my_variable;
     let sql = "SELECT * FROM estudiantes"; //nombre de la tabla
@@ -67,7 +40,7 @@ router.get("/alumnos", (req, res) => {
 
 //CLASSROOM BASE DE DATOS --INSERT--
 
-router.post('/save', (req, res) => {
+dbClassroom.post('/save', (req, res) => {
     let data = { estudiantes_nombre: req.body.estudiantes_nombre, estudiantes_apellido: req.body.estudiantes_apellido, estudiantes_fk_id_nivel: req.body.estudiantes_fk_id_nivel };
     let sql = "INSERT INTO estudiantes SET ?"; //nombre de la tabla
     let query = conn.query(sql, data, (err, results) => {
@@ -79,7 +52,7 @@ router.post('/save', (req, res) => {
 
 
 //UPDATE 
-router.post('/update', (req, res) => {
+dbClassroom.post('/update', (req, res) => {
     let sql = "UPDATE estudiantes SET estudiantes_nombre= '" + req.body.estudiantes_nombre + "', estudiantes_apellido='" + req.body.estudiantes_apellido + "', estudiantes_fk_id_nivel='" + req.body.estudiantes_fk_id_nivel + "' WHERE estudiantes_id=" + req.body.id;
     
     let query = conn.query(sql, (err, results) => {
@@ -89,7 +62,7 @@ router.post('/update', (req, res) => {
 });
 
 //DELETE 
-router.post('/delete', (req, res) => {
+dbClassroom.post('/delete', (req, res) => {
     let sql = "DELETE from estudiantes WHERE estudiantes_id= "  + req.body.estudiantes_id + "";
     
     let query = conn.query(sql, (err, results) => {
@@ -98,17 +71,8 @@ router.post('/delete', (req, res) => {
     });
 });
 
-*/
-
 
 /*
-router.get("/alumnos", (req, res) => {
-    res.render('alumnos')   
-
-});
-
-*/
-
 //SESION
 
 router.post("/registro", (req, res) => {
@@ -126,12 +90,11 @@ router.get("/contacto", (req, res) => {
 
 });
 
-
-/*
 router.get("*", (req, res) => {
         res.render('404')    
 });
 
 */
 
-module.exports = router;
+
+module.exports = dbClassroom;

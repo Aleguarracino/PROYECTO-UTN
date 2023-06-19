@@ -9,12 +9,16 @@ contacto.get("/contacto", (req, res) => {
 })
 
 
-contacto.post("/enviar-email", (req, res) => {
-    const nombre = req.body.nombre;
-    const apellido = req.body.apellido;
-    const email = req.body.email;
-    const asunto = req.body.asunto;
-    const mensaje = req.body.mensaje;
+contacto.post("/enviar-email", async (req, res) => {
+    const { nombre, apellido, email, asunto, mensaje } = req.body;
+    
+    
+    //Validar el formulario
+
+    if (!nombre || !email || !mensaje){
+        return res.render('formulario', { error: 'Todos los campos son obligatorios' });
+    }
+
 
     let transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
@@ -26,26 +30,48 @@ contacto.post("/enviar-email", (req, res) => {
         }
     });
 
+
     let mailOptions = {
         to: "123@gmail.com",
         from: "Remitente",
         subject: `${asunto}`,
-        html: `<h1> Mensaje de ${nombre} ${apellido} para nosotros: ${mensaje},
-    Contacto: ${email} </h1>`,
+        text: `Nombre: ${nombre}
+        Apellido: ${apellido}
+        Mensaje: ${mensaje}
+        Contacto: ${email}`,
     };
 
+    /*
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             res.status(500).send(error.message);
         } else {
             res.render('enviado');
-            res.status(200).jsonp(reqbody);
+            res.status(200).json(reqbody);
         }
 
     });
+    */
+
+//Try.catch estructura de control para manejar errores y excepciones
+
+try{
+    //Enviar correo electrónico
+    await transporter.sendMail(mailOptions);
+    res.render('enviado',{
+        nombre: req.body.nombre
+    });
+} catch (error){
+    console.log(error);
+    res.render('contacto', { error: 'Error al enviar mensaje'});
+}
+
+
+
+
     
     });
 
 
 
-    module.exports = contacto;
+module.exports = contacto;
