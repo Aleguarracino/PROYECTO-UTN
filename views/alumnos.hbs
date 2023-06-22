@@ -16,7 +16,7 @@
 
     <div class="container p-5 bg-light">
 
-        <h1> Sesión iniciada por {{user.usuario}}</h1>
+        <h1> Sesión iniciada por {{username}}</h1>
 
         <table class="table" id="mytable">
             <div class="container-flex pt-3 pb-3">
@@ -62,8 +62,13 @@
 
             </tbody>
         </table>
+        <div class="container p-3 bg-light">
         <a class="btn  btn-primary  d-grid gap-2 col-3 mx-auto" href="/" role="button">Home</a>
-
+       
+        </div>
+        <div class="container p-3 bg-light">
+         <a class="btn  btn-danger  d-grid gap-2 col-3 mx-auto"  href="/logout"   >Desconectarse</a>
+        </div>
     </div>
 
     {{!--MODAL PARA AGREGAR ALUMNOS--}}

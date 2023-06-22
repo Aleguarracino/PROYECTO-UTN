@@ -15,7 +15,7 @@ const conn = mysql.createConnection({
 
 conn.connect((err) => {
     if (err) throw err;
-    console.log("CONEXION ESTABLECIDA");
+    console.log("PRIMER CONEXION ESTABLECIDA");
 })
 
 
@@ -24,8 +24,12 @@ conn.connect((err) => {
 // CLASSROOM BASE DE DATOS --SELECT--
 
 dbClassroom.get("/alumnos", (req, res) => {
+    if (req.session.loggein){
+        //res.render('alumnos', { username: req.session.username});
+    
+
     const user = req.session.my_variable;
-    delete req.session.my_variable;
+    //delete req.session.my_variable;
     let sql = "SELECT * FROM estudiantes"; //nombre de la tabla
     let query = conn.query(sql, (err, results) => {
         if (err) throw err;
@@ -34,6 +38,10 @@ dbClassroom.get("/alumnos", (req, res) => {
             user
         });
     });
+} 
+    else{
+        res.redirect("/");
+    }
 
 });
 
@@ -71,30 +79,11 @@ dbClassroom.post('/delete', (req, res) => {
     });
 });
 
-
 /*
-//SESION
-
-router.post("/registro", (req, res) => {
-    req.session.my_variable = req.body;
-    res.redirect('/alumnos')
-})
-
-
-router.get("/contacto", (req, res) => {
-    res.render('contacto', {
-        nombre: 'Alejandro Guarracino',
-        titulo: 'Instituto de Inglés'
-
-    })    
-
-});
-
-router.get("*", (req, res) => {
-        res.render('404')    
+dbClassroom.get("*", (req, res) => {
+    res.render('404')    
 });
 
 */
-
 
 module.exports = dbClassroom;

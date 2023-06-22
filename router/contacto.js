@@ -65,12 +65,9 @@ try{
     console.log(error);
     res.render('contacto', { error: 'Error al enviar mensaje'});
 }
-
-
-
-
     
     });
+
 
 
 
