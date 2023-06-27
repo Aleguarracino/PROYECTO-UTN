@@ -25,10 +25,10 @@ body {
 .banner {
     background-image: url("./img/pexels-pixabay-258117.jpg");
     background-color: rgb(71, 106, 151);
-    background-repeat: no-repeat;
     /*opcion para que la imagen del banner no repita, tiene varias opciones de repeticiones*/
-    background-size: cover;
+    background-repeat: no-repeat;
     /*opcion para que la imagen ocupa todo el banner*/
+    background-size: cover;
     background-position: center;
     height: 30rem;
 }
@@ -374,3 +374,7 @@ body {
     
 }
 
+ .mensaje-sesion{
+color: red;
+    
+ }

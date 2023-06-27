@@ -16,7 +16,7 @@
 
     <div class="container p-5 bg-light">
 
-        <h1> Sesión iniciada por {{username}}</h1>
+        <h1> Sesión iniciada por {{user}}</h1>
 
         <table class="table" id="mytable">
             <div class="container-flex pt-3 pb-3">
@@ -62,14 +62,19 @@
 
             </tbody>
         </table>
+
         <div class="container p-3 bg-light">
-        <a class="btn  btn-primary  d-grid gap-2 col-3 mx-auto" href="/" role="button">Home</a>
-       
-        </div>
-        <div class="container p-3 bg-light">
-         <a class="btn  btn-danger  d-grid gap-2 col-3 mx-auto"  href="/logout"   >Desconectarse</a>
-        </div>
-    </div>
+        
+
+
+    {{!-- <a class="btn  btn-primary  p d-grid gap-2 col-3 mx-auto" href="/" role="button">Home</a>--}}
+
+    <a class="btn  btn-danger  d-grid gap-2 col-3 mx-auto"  href="/logout" role="button"  >Desconectarse</a>
+
+
+    
+   </div>
+
 
     {{!--MODAL PARA AGREGAR ALUMNOS--}}
 
@@ -149,14 +154,14 @@
 
                         </div>
 
-                           <!--                 
+                        <!--                 
                         <div class="form-group mb-3-">
                             <input type="text" name="estudiantes_fk_id_nivel"
                                 class="form-control estudiantes_fk_id_nivel" placeholder="Nivel del Alumno" required>
 
                         </div>
                             -->
-                      <select class="form-select mb-3" name="estudiantes_fk_id_nivel"
+                        <select class="form-select mb-3" name="estudiantes_fk_id_nivel"
                             aria-label="Default select example" required>
                             <option value="">Nivel del alumno</option>
                             <option value="1">Inicial</option >
