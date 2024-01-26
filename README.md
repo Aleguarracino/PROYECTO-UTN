@@ -13,7 +13,6 @@ con los distintos niveles de inglés estipulados. La última tabla corresponde a
 Variables de entorno:
 Las siguientes son las variables de entorno que deben configurarse en un archivo .env 
 
-Correspondiente al puerto utilizado:
 PORT =
 
 Para la transferencia de correo en la página de contacto:
